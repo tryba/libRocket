@@ -201,11 +201,16 @@ void ElementImage::GenerateGeometry()
 		texcoords[1] = Vector2f(1, 1);
 	}
 
+	const Property* element_colour = GetProperty(COLOR);
+	Colourb quad_colour = Colourb(255, 255, 255, 255);
+	if (element_colour)
+		quad_colour = element_colour->Get<Colourb>();
+
 	Rocket::Core::GeometryUtilities::GenerateQuad(&vertices[0],									// vertices to write to
 												  &indices[0],									// indices to write to
 												  Vector2f(0, 0),					// origin of the quad
 												  GetBox().GetSize(Rocket::Core::Box::CONTENT),	// size of the quad
-												  Colourb(255, 255, 255, 255),		// colour of the vertices
+												  quad_colour,		// colour of the vertices
 												  texcoords[0],									// top-left texture coordinate
 												  texcoords[1]);								// top-right texture coordinate
 

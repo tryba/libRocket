@@ -43,7 +43,8 @@
 	#define ROCKET_PLATFORM_LINUX
 	#define ROCKET_PLATFORM_NAME "linux"
 #endif
-
+// Causes definition of Rocket::Core::Assert
+ //#define ROCKET_DEBUG
 #if !defined NDEBUG && !defined ROCKET_DEBUG
 	#define ROCKET_DEBUG
 #endif
